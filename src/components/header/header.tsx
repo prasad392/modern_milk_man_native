@@ -1,7 +1,10 @@
+
+import { useRouter } from 'expo-router';
 import React from 'react';
-import { Image, StyleSheet, TextInput, View } from 'react-native';
+import { Image, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 
 const Header = () => {
+  const router = useRouter()
   return (
     <View style={styles.container}>
       <TextInput
@@ -9,7 +12,9 @@ const Header = () => {
         placeholder="Search Modern Milkman"
         placeholderTextColor="#000"
       />
-      <Image source={require('../../../assets/users/user11.png')} style={styles.img} />
+      <TouchableOpacity onPress={()=> router.push('/login')}>
+          <Image source={require('../../../assets/users/user11.png')} style={styles.img} />
+      </TouchableOpacity>
     </View>
   );
 };
