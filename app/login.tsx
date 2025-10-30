@@ -3,16 +3,27 @@ import React, { useState } from 'react'
 import { Checkbox } from 'react-native-paper'
 import { useRouter } from 'expo-router'
 
-
+type user ={
+  number:any;
+  password:any;
+}
 const Login = () => {
   const router = useRouter();
-  const [formData,setFormData] = useState({
+  const [formData,setFormData] = useState<user>({
     number:'',
     password:'',
   })
   const [rememberMe, setRememberMe] = useState(false);
   const handleSubmit =()=>{
+    if(!(formData.number) || !(formData.password)){
+      Alert.alert('Enter the feilds')
+      return;
+    }
     Alert.alert(`${formData.number},${formData.password} is submitted`)
+    setFormData({
+      number:'',
+      password:''
+    })
   }
   return (
     <>

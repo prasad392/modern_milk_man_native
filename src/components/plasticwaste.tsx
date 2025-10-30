@@ -1,12 +1,20 @@
 import { View, Text, StyleSheet, Alert } from 'react-native'
 import React from 'react'
-import { plasticWaste } from '../data/mockdata'
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import Customcard from './customcard/customcard'
+import { products_categories } from '../data/mockdata'
+import { useNavigation } from '@react-navigation/native'
 
-
+type TabParamList = {
+  index: undefined;
+  products: {category?:string};
+  orders: undefined;
+  basket: undefined;
+  account: undefined;
+};
 
 const Plasticwaste = () => {
-
+  const navigation = useNavigation<BottomTabNavigationProp<TabParamList>>();
   return (
     <View style={styles.container}>
       <View style={styles.reducecont}>
@@ -14,9 +22,16 @@ const Plasticwaste = () => {
       </View>
       <View style={styles.allcustomcard}>
             {
-                plasticWaste.map((item,index)=>(
+                products_categories.map((item,index)=>(
                     <View key={index} style={styles.card}>
-                        <Customcard image={item.img} label={item.label} onPress={()=>Alert.alert(item.label)}/>
+                        <Customcard
+                         image={item.img}
+                          label={item.label}
+                            onPress={() => {
+                            console.log('Navigating with category:', item.label);
+                            navigation.navigate('products',{category:item.label})
+                            }}
+                           />
                     </View>
                 ))
             }
