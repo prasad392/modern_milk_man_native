@@ -11,9 +11,9 @@ type customprops ={
     onPress?: ()=>void;
 }
 const Proitemcard:React.FC<customprops> = ({image,label,cost,onPress}) => (
-            <>
+            <TouchableOpacity onPress={onPress}>
                 <View style={styles.mycard} >
-                    <Image source={image} style={styles.image} />
+                    <Image source={image} style={styles.image}  />
                     <View style={styles.cardInfo}>
                         <View style={styles.cardcon}>
                             <Text style={styles.text}>{label}</Text>
@@ -27,7 +27,7 @@ const Proitemcard:React.FC<customprops> = ({image,label,cost,onPress}) => (
                         </View>
                     </View>
                 </View>
-            </>
+            </TouchableOpacity>
 );
 
 export default Proitemcard;
