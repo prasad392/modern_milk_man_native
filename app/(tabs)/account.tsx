@@ -35,20 +35,25 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight :0,
+        
     },
     account:{
       flex:1,
-      width:'100%'
+      width:'100%',
+      backgroundColor:'#d8e9f8ff',
+      height:900,
     },
     scrollContent:{
       paddingTop: 70,
     },
     accountcon:{
-      borderWidth:1,
       width:'90%',
       marginVertical:20,
       marginHorizontal:'auto',
       padding:10,
+      borderRadius:12,
+      backgroundColor:'#f7ededff'
+      
     },
     text:{
       fontSize:14,

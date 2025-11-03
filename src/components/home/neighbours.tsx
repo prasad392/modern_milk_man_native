@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         flexDirection:'column',
         alignItems:'center',
         justifyContent:'center'
-    },
+    }, 
     jointext:{
         marginTop:20,
         fontSize:26,

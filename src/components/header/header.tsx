@@ -5,7 +5,7 @@ import { Image, StyleSheet, TextInput, TouchableOpacity, View } from 'react-nati
 
 const Header = () => {
   const router = useRouter()
-  return (
+  return ( 
     <View style={styles.container}>
       <TextInput
         style={styles.input}

@@ -10,7 +10,7 @@ type customprops ={
     cost:string;
     onPress?: ()=>void;
 }
-const Proitemcard:React.FC<customprops> = ({image,label,cost,onPress}) => (
+const BasketCard:React.FC<customprops> = ({image,label,cost,onPress}) => (
             <TouchableOpacity >
                 <View style={styles.mycard} >
                     <Image source={image} style={styles.image}  />
@@ -22,7 +22,7 @@ const Proitemcard:React.FC<customprops> = ({image,label,cost,onPress}) => (
                         </View>
                         <View style={styles.addbtn}>
                             <TouchableOpacity style={styles.button} onPress={onPress}>
-                                <Text style={{fontSize:16,fontWeight:800}} >Add</Text>
+                                <Text style={{fontSize:16,fontWeight:800,color:'#fff'}} >Del</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -30,7 +30,7 @@ const Proitemcard:React.FC<customprops> = ({image,label,cost,onPress}) => (
             </TouchableOpacity>
 );
 
-export default Proitemcard;
+export default BasketCard;
 
 const styles = StyleSheet.create({
     mycard:{
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
 
     },
     button:{
-        backgroundColor:'#669bbc',
+        backgroundColor:'#f32626ff',
         width:60,
         alignItems:'center',
         height:30,

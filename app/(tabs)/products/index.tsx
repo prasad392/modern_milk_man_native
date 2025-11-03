@@ -2,11 +2,12 @@
 import ProductCard from "@/src/components/customcard/productCard";
 import Proitemcard from "@/src/components/customcard/proitemcard";
 import Header from "@/src/components/header/header";
+import { useCart } from "@/src/context/cartContext";
 import { categories_Data, main_products_items, products_categories } from "@/src/data/mockdata";
 import { useRoute } from "@react-navigation/native";
 
 import { useEffect, useState } from "react";
-import { ImageSourcePropType, Platform, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { Alert, ImageSourcePropType, Platform, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
 
 type cata = {
     className: string;
@@ -24,6 +25,11 @@ type User = {
   label: string;
 };
 
+type ItemAdd = {
+  image:ImageSourcePropType,
+  label:any,
+  cost:any
+}
 export default function Products() {
     const [selectcatdata,setSelectcatdata] = useState<cata | null>(null)
     const [selectedCategory,setSelectedCategory] = useState<string | null>(null);
@@ -52,6 +58,13 @@ export default function Products() {
     const catData = selectData && categories_Data.find((c)=>(c.className === selectData.label))
      console.log(catData);
     setSelectcatdata(catData || null);
+  }
+
+  const {setCartItems} = useCart();
+
+  const handleItemAdd=(item:ItemAdd)=>{
+    Alert.alert(item.label,item.cost)
+    setCartItems(prev=>[...prev,item])
   }
   return (
     <ScrollView>
@@ -84,7 +97,7 @@ export default function Products() {
                             {
                               selectcatdata.images.map((item,index)=>(
                                 <View key={index} style={styles.allproducts}>
-                                  <Proitemcard image={item.img} label={item.label} cost={item.cost}/>
+                                  <Proitemcard image={item.img} label={item.label} cost={item.cost} onPress={()=>handleItemAdd({image:item.img,label:item.label,cost:item.cost})}/>
                                 </View>
                               ))
                             }
@@ -94,7 +107,7 @@ export default function Products() {
                             {
                               main_products_items.map((item,index)=>(
                                 <View key={index} style={styles.allproducts}>
-                                    <Proitemcard image={item.img} label={item.label} cost={item.cost}/>
+                                    <Proitemcard image={item.img} label={item.label} cost={item.cost} onPress={()=>handleItemAdd({image:item.img,label:item.label,cost:item.cost})}/>
                                 </View>
                               ))
                             }
