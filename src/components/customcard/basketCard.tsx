@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'flex-start',
         gap:20,
-        borderRadius:8
+        borderRadius:8,
+        marginTop:20
     },
     cardcon:{
         gap:10,
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
 
     },
     button:{
-        backgroundColor:'#f32626ff',
+        backgroundColor:'#ae2012',
         width:60,
         alignItems:'center',
         height:30,

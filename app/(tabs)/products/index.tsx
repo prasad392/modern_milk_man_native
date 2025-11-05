@@ -67,7 +67,6 @@ export default function Products() {
     setCartItems(prev=>[...prev,item])
   }
   return (
-    <ScrollView>
       <View style={styles.container}>
         <StatusBar barStyle={'dark-content'}/>
           <View style={styles.products}>
@@ -119,7 +118,7 @@ export default function Products() {
             </ScrollView>
           </View>
       </View>
-    </ScrollView>
+
   );
 }
 const styles = StyleSheet.create({
